@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dashboard.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="welcome">
+        <h1>Welcome to Oover Eats</h1>
+        <br>
+        <p>
+            Welcome {{user.admin}} {{user.first_name}}!
+        </p>
+        <br>
+        {% if user.admin == 'chef' %}
+            <a href="/dishes/new">Create a Dish</a>
+        {% endif %}
+        <br>
+        <a href="/logout">Logout</a>
+        <a href="/breakdown">Todays Breakdown</a>
+    </div>
+    <br>
+    <h2>Today's Menu Items Are:</h2>
+    <br>
+    <div class="menu">
+        {% for dish in dishes %}
+            <div class="menu_items">
+                <form action="add_order/{{dish.id}}" method="post">
+                    <button>{{dish.title}}</button>
+                    <input type="hidden" name="orders" value=1>
+                </form>
+                    <a href="/display/recipe/{{dish.id}}">Display</a>
+                    {% if user.admin == 'chef' %}
+                        <a href="/edit/{{dish.id}}">Edit</a>
+                        <a href="/delete/{{dish.id}}">Delete</a>
+                    {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

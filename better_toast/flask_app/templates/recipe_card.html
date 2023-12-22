@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='recipe_card_style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/dashboard">Back to Dashboard</a>
+    <a href="/logout">Logout</a>
+    <div class="card">
+        <h1>{{dish.title}}</h1>
+        <hr>
+        <br>
+        <p>Description:</p>
+        <br>
+        <p>{{dish.description}}</p>
+        <br>
+        <p>Ingredients: </p>
+        <br>
+        <p>{{dish.ingredients}}</p>
+        <br>
+        <p>Instructions: </p>
+        <br>
+        <p>{{dish.instructions}}</p>
+    </div>
+</body>
+</html>

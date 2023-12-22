@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dish_style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/dashboard">Back to Dashboard</a>
+    <a href="/logout">Logout</a>
+    <div class="recipe">
+        <h1>Create A New Recipe</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="color:red;">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/create_dish" method="post">
+            <input type="hidden" name="creator_id" value="{{user.id}}">
+            <label for='title'>Title:</label>
+            <input type='text' name='title'>
+            <br>
+            <label for='description'>Description:</label>
+            <br>
+            <textarea rows="3" cols="20" name='description'>Describe it Here...</textarea>
+            <br>
+            <label for='instructions'>Instructions:</label>
+            <br>
+            <textarea rows="3" cols="20" name='instructions'>Instructions go Here...</textarea>
+            <br>
+            <label for='ingredients'>Ingredients:</label>
+            <br>
+            <textarea rows="3" cols="20" name='ingredients'>What Goes in it?</textarea>
+            <br>
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+</html>

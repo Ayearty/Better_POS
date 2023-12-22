@@ -1,0 +1,40 @@
+body{
+    display: grid;
+    padding:35px;
+    padding-left:70px;
+    background-color: beige;
+}
+.welcome{
+    background-color: aliceblue;
+    border-radius: 50px;
+    padding:20px;
+}
+li{
+    list-style-type: none;
+}
+.menu{
+    display: flex;
+    height: 800px;
+    width: 810px;
+}
+.menu_items{
+    background-color: antiquewhite;
+    display: flex;
+    font-size: small;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: 3px solid;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    height: 90px;
+    justify-content: center;
+    width: 106px;
+}
+button{
+    border-radius: 10%;
+    margin-bottom:25%;
+    height:90%;
+    width:145%;
+}
