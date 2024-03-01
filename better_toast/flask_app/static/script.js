@@ -1,4 +1,4 @@
-const startTime = 10;
+const startTime = 15;
 let time = startTime * 60;
 
 const countdownEL = document.getElementById('countdown');
